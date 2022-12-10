@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using myFunction.Entities;
 
 using myFunction.Entities.Input;
+using System.Linq;
 
 namespace myFunction
 {
@@ -32,9 +33,8 @@ namespace myFunction
 
                 responses.Add(newRoot);
 
-            } while (responses[responses.Count].page==0);
+            } while (responses.Last().page==0);
 
-           
         }
     }
 }
