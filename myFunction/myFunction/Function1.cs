@@ -25,7 +25,17 @@ namespace myFunction
 
             var request = new RestRequest();
 
-            do
+            // w sytuacji gdy dane nie bêd¹ podzielone na kilka stron
+
+            var response = client.Get(request).Content;
+
+            var newRoot = JsonConvert.DeserializeObject<Root>(response);
+
+            responses.Add(newRoot);
+
+            // w sytuacji gdy dane bêd¹ podzielone na kilka stron
+
+            /*do
             {
                 var response = client.Get(request).Content;
 
@@ -33,8 +43,17 @@ namespace myFunction
 
                 responses.Add(newRoot);
 
-            } while (responses.Last().page==0);
+                if (responses.Last().page == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    client = new RestClient(@$"https://www.faire.com/api/v1/orders?page={newRoot.page + 1}");
+                }
 
+            } while (true);
+            */
         }
     }
 }
