@@ -12,7 +12,7 @@ namespace myFunction
 
 
         [FunctionName("Function1")]
-        public void Run([TimerTrigger("0 */1 * * * *")]TimerInfo myTimer, ILogger log)
+        public void Run([TimerTrigger("0 */10 * * * *")]TimerInfo myTimer, ILogger log)
         {
 
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
