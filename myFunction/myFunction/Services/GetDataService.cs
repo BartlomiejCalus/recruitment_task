@@ -5,18 +5,31 @@ using System.Linq;
 
 using myFunction.Entities.Input;
 using myFunction.Entities.Output;
-using myFunction.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
+using System.Text.RegularExpressions;
 
 namespace myFunction.Services
 {
-    public class GetDataService : IGetDataService
+    public static class GetDataService
     {
-        RestClient client = new RestClient(@"https://www.faire.com/api/v1/orders");
+        static RestClient client = new RestClient(@"https://www.faire.com/api/v1/orders");
 
-        RestRequest request = new RestRequest();
+        static RestRequest request = new RestRequest();
 
+        private readonly static string _key = "";
 
-        public List<RootOut> GetFromOnePage()
+        private static string getKey()
+        {
+            IConfigurationBuilder configBuilder = new ConfigurationBuilder().AddJsonFile("local.settings.json");
+            IConfiguration config = configBuilder.Build();
+
+            config.GetSection()
+
+            return 
+                
+            
+        }
+        public static List<RootOut> GetFromOnePage()
         {
             request.AddHeader("X-FAIRE-ACCESS-TOKEN", "");
 
@@ -34,7 +47,7 @@ namespace myFunction.Services
             return listOfOutOrder;
         }
 
-        public List<RootOut> GetFromFewPages()
+        public static List<RootOut> GetFromFewPages()
         {
             request.AddHeader("X-FAIRE-ACCESS-TOKEN", "");
 
