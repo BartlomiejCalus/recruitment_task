@@ -9,6 +9,7 @@ namespace myFunction
     public class Function1
     {
         private readonly IGetDataService _dataService;
+        private readonly IAddOrdersService _addOrdersService;
 
         [FunctionName("Function1")]
         public void Run([TimerTrigger("0 */10 * * * *")]TimerInfo myTimer, ILogger log)
@@ -27,9 +28,9 @@ namespace myFunction
 
             // ci¹g dalszy dla obu opcji:
 
+            var respons = _addOrdersService.SendData(result);
 
-
-
+            System.Console.WriteLine(respons);
         }
     }
 }

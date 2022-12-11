@@ -18,6 +18,8 @@ namespace myFunction.Services
 
         public List<RootOut> GetFromOnePage()
         {
+            request.AddHeader("X-FAIRE-ACCESS-TOKEN", "");
+
             var response = client.Get(request).Content;
 
             var newRoot = JsonConvert.DeserializeObject<Root>(response);
@@ -34,6 +36,8 @@ namespace myFunction.Services
 
         public List<RootOut> GetFromFewPages()
         {
+            request.AddHeader("X-FAIRE-ACCESS-TOKEN", "");
+
             List<Root> responses = new List<Root>();
             do
             {
