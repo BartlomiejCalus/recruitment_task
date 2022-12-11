@@ -12,6 +12,5 @@ namespace myFunction.Entities.Input
         public Address address { get; set; }
         public string retailer_id { get; set; }
         public string source { get; set; }
-        public Shipments shipments { get; set; }
     }
 }

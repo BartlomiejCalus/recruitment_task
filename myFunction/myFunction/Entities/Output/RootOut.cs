@@ -8,7 +8,6 @@ namespace myFunction.Entities.Output
         public string custom_source_id { get; } = "1024";
         public string date_add { get; set; }
         public string phone { get; set; }
-        public string delivery_price { get; set; }
         public string delivery_fullname { get; set; }
         public string delivery_company { get; set; }
         public string delivery_address { get; set; }
