@@ -7,6 +7,7 @@ using myFunction.Entities.Input;
 using myFunction.Entities.Output;
 using Microsoft.Extensions.Configuration;
 using System.Text.RegularExpressions;
+using System;
 
 namespace myFunction.Services
 {
@@ -16,22 +17,11 @@ namespace myFunction.Services
 
         static RestRequest request = new RestRequest();
 
-        private readonly static string _key = "";
+        private static string _key = Environment.GetEnvironmentVariable("X-FAIRE-ACCESS-TOKEN");
 
-        private static string getKey()
-        {
-            IConfigurationBuilder configBuilder = new ConfigurationBuilder().AddJsonFile("local.settings.json");
-            IConfiguration config = configBuilder.Build();
-
-            config.GetSection()
-
-            return 
-                
-            
-        }
         public static List<RootOut> GetFromOnePage()
         {
-            request.AddHeader("X-FAIRE-ACCESS-TOKEN", "");
+            request.AddHeader("X-FAIRE-ACCESS-TOKEN", _key);
 
             var response = client.Get(request).Content;
 
@@ -49,7 +39,7 @@ namespace myFunction.Services
 
         public static List<RootOut> GetFromFewPages()
         {
-            request.AddHeader("X-FAIRE-ACCESS-TOKEN", "");
+            request.AddHeader("X-FAIRE-ACCESS-TOKEN", _key);
 
             List<Root> responses = new List<Root>();
             do
