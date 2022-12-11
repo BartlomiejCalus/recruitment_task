@@ -2,7 +2,6 @@
 {
     public class ProductOut
     {
-        public int storage_id { get; set; }
         public string product_id { get; set; }
         public int variant_id { get; set; }
         public string name { get; set; }

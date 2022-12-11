@@ -11,7 +11,7 @@ namespace myFunction.Entities.Input
         public List<Item> items { get; set; }
         public Address address { get; set; }
         public string retailer_id { get; set; }
-        public PayoutCosts payout_costs { get; set; }
         public string source { get; set; }
+        public Shipments shipments { get; set; }
     }
 }
